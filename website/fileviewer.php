@@ -16,9 +16,9 @@ $name = $_GET["file"];
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>russellthackston.me</title>
-	<meta name="description" content="Russell Thackston's personal website for IT 5233">
-	<meta name="author" content="Russell Thackston">
+	<title>Eat It</title>
+	<meta name="description" content="Ashley Guthrie's personal website for IT 5233">
+	<meta name="author" content="Ashley Guthrie">
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -27,9 +27,11 @@ $name = $_GET["file"];
 	2. If no errors display things -->
 <body>
 	<?php include 'include/header.php'; ?>
-	<h2>User Guide</h2>
-	<div>
-		<?php echo $app->getFile($name); ?>
+	<div class="main">
+		<h2>User Guide</h2>
+		<div>
+			<?php echo $app->getFile($name); ?>
+		</div>
 	</div>
 	
 </body>

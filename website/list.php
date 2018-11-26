@@ -55,9 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>russellthackston.me</title>
-	<meta name="description" content="Russell Thackston's personal website for IT 5233">
-	<meta name="author" content="Russell Thackston">
+	<title>Eat It</title>
+	<meta name="description" content="Ashley Guthrie's personal website for IT 5233">
+	<meta name="author" content="Ashley Guthrie">
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -66,41 +66,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	2. If no errors display things -->
 <body>
 	<?php include 'include/header.php'; ?>
-	<h2>My Things</h2>
+	<div class="main">
+		<h2>My Favorite Spots</h2>
 	
-	<?php include('include/messages.php'); ?>
+		<?php include('include/messages.php'); ?>
 	
-	<div class="search">
-		<form action="list.php" method="post">
-			<label for="search">Filter:</label>
-			<input type="text" id="search" name="search"/>
-			<input type="submit" value="Apply" />
-		</form>
-	</div>
-	<ul class="things">
-		<?php if (sizeof($things) == 0) { ?>
-		<li>No things found</li>
-		<?php } ?>
-		<?php foreach ($things as $thing) { ?>
-		<li>
-			<a href="thing.php?thingid=<?php echo $thing['thingid']; ?>"><?php echo $thing['thingname']; ?></a>
-			<span class="author"><?php echo $thing['thingcreated']; ?></span>
-		</li>
-		<?php } ?>
+		<div class="search">
+			<form action="list.php" method="post">
+				<label for="search">Filter:</label>
+				<input type="text" id="search" name="search"/>
+				<input type="submit" value="Apply" />
+			</form>
+		</div>
+		<ul class="things">
+			<?php if (sizeof($things) == 0) { ?>
+			<li>No places found</li>
+			<?php } ?>
+			<?php foreach ($things as $thing) { ?>
+			<li>
+				<a href="thing.php?thingid=<?php echo $thing['thingid']; ?>"><?php echo $thing['thingname']; ?></a>
+				<span class="author"><?php echo $thing['thingcreated']; ?></span>
+			</li>
+			<?php } ?>
 
-	</ul>
-	<div class="newthing">
-		<form enctype="multipart/form-data" method="post" action="list.php">
-			<input type="text" name="name" id="name" size="81" placeholder="Enter a thing name" value="<?php echo $name; ?>" />
-			<br/>
-			<label for="attachment">Add an image, PDF, etc.</label>
-			<input id="attachment" name="attachment" type="file">
-			<br/>
-			<input type="submit" name="start" value="Create Thing" />
-			<input type="submit" name="cancel" value="Cancel" />
-		</form>
+		</ul>
+		<div class="newthing">
+			<form enctype="multipart/form-data" method="post" action="list.php">
+				<input type="text" name="name" id="name" size="81" placeholder="Enter a Location" value="<?php echo $name; ?>" />
+				<br/>
+				<label for="attachment">Add an image, PDF, etc.</label>
+				<input id="attachment" name="attachment" type="file">
+				<br/>
+				<input type="submit" name="start" value="Add Location" />
+				<input type="submit" name="cancel" value="Cancel" />
+			</form>
+		</div>
 	</div>
-	<?php include 'include/footer.php'; ?>
-	<script src="js/site.js"></script>
+		<?php include 'include/footer.php'; ?>
+		<script src="js/site.js"></script>
 </body>
 </html>

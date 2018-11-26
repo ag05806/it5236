@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($result == TRUE) {
 
 		// Redirect the user to the topics page on success
-		header("Location: list.php");
+		header("Location: otp.php");
 		exit();
 
 	}
@@ -59,9 +59,9 @@ if (isset($_GET['register']) && $_GET['register']== 'success') {
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>russellthackston.me</title>
-	<meta name="description" content="Russell Thackston's personal website for IT 5233">
-	<meta name="author" content="Russell Thackston">
+	<title>anguthrie.me</title>
+	<meta name="description" content="Ashley Guthrie's personal website for IT 5233">
+	<meta name="author" content="Ashley Guthrie">
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -71,27 +71,73 @@ if (isset($_GET['register']) && $_GET['register']== 'success') {
 
 <body>
 	<?php include 'include/header.php'; ?>
-
+	<div class="main">
 	<h2>Login</h2>
 
 	<?php include('include/messages.php'); ?>
 	
+	
 	<div>
-		<form method="post" action="login.php">
+		
+		<form method="post" action="login.php" class="logPrompts" id="usernameForm">
 			
-			<input type="text" name="username" id="username" placeholder="Username" value="<?php echo $username; ?>" />
+			<input type="text" name="username" id="usernameField" placeholder="Username" value="<?php echo $username; ?>"/>
 			<br/>
+			
 
 			<input type="password" name="password" id="password" placeholder="Password" value="<?php echo $password; ?>" />
 			<br/>
 
-			<input type="submit" value="Login" name="login" />
+			<label><input type="checkbox" id="saveLocal">Check here to remember your username</label>
+			<br/>
+
+			<input type="submit" value="Login" name="login" />			
+
+			
 		</form>
+		
 	</div>
 	<a href="register.php">Need to create an account?</a>
 	<br/>
 	<a href="reset.php">Forgot your password?</a>
+	</div>
 	<?php include 'include/footer.php'; ?>
-	<script src="js/site.js"></script>
+
+	//<script src="js/site.js"></script>
+	
+<script  type="text/javascript">
+
+function doSubmit(e) {
+	var saveLocal = document.getElementById("saveLocal").checked;
+	if (saveLocal) {
+		console.log("Saving username to local storage");
+		var username = document.getElementById("usernameField").value;
+		localStorage.setItem("username",username);
+	} else {
+		localStorage.removeItem("username");
+		sessionStorage.removeItem("username");
+	}
+}
+
+function doPageLoad(e) {
+	console.log("Reading username from local/session storage");
+	var usernameLocal = localStorage.getItem("username");
+	var usernameSession = sessionStorage.getItem("username");
+	if (usernameLocal) {
+		document.getElementById("saveLocal").checked = true;
+		document.getElementById("usernameField").value = usernameLocal;
+	}else {
+		//document.getElementById("noSave").checked = true;
+	}
+}
+
+// Add event listeners for page load and form submit
+window.addEventListener("load", doPageLoad, false);
+document.getElementById("usernameForm").addEventListener("submit", doSubmit, false);
+
+
+</script>
+
+
 </body>
 </html>

@@ -81,53 +81,55 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>russellthackston.me</title>
-	<meta name="description" content="Russell Thackston's personal website for IT 5233">
-	<meta name="author" content="Russell Thackston">
+	<title>Eat It</title>
+	<meta name="description" content="Ashley Guthrie's personal website for IT 5233">
+	<meta name="author" content="Ashley Guthrie">
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<?php include 'include/header.php'; ?>
-	<div class="breadcrumbs">
-		<a href="list.php">Back to things list</a>
-	</div>
+		<div class="main">
+		<div class="breadcrumbs">
+			<a href="list.php">Back to My Spots</a>
+		</div>
 	
-	<?php include('include/messages.php'); ?>
+		<?php include('include/messages.php'); ?>
 	
-	<div class="topiccontainer">
-		<p class="topictitle"><?php echo $thing['thingname']; ?></p>
-		<p class="topictagline"><?php echo $thing['username']; ?> on <?php echo $thing['thingcreated']; ?></p>
-		<?php if ($thing['filename'] != NULL) { ?>
-			<p class="topicattachment"><a href="attachments/<?php echo $thing['thingattachmentid'] . '-' . $thing['filename']; ?>"><?php echo $thing['filename']; ?></a></p>
-		<?php } else { ?>
-			<p class="topicattachment">No attachment</p>
-		<?php } ?>
-	</div>
-	<ul class="comments">
-		<?php foreach ($comments as $comment) { ?>
-		<li>
-			<?php echo $comment['commenttext']; ?>
-			<br/>
-			<span class="author"><?php echo $comment['username']; ?> on <?php echo $comment['commentposted']; ?></span>
-			<?php if ($comment['filename'] != NULL) { ?>
-				<p class="commentattachment"><a href="attachments/<?php echo $comment['attachmentid'] . '-' . $comment['filename']; ?>"><?php echo $comment['filename']; ?></a></p>
+		<div class="topiccontainer">
+			<p class="topictitle"><?php echo $thing['thingname']; ?></p>
+			<p class="topictagline"><?php echo $thing['username']; ?> on <?php echo $thing['thingcreated']; ?></p>
+			<?php if ($thing['filename'] != NULL) { ?>
+				<p class="topicattachment"><a href="attachments/<?php echo $thing['thingattachmentid'] . '-' . $thing['filename']; ?>"><?php echo $thing['filename']; ?></a></p>
 			<?php } else { ?>
-				<p class="commentattachment">No attachment</p>
+				<p class="topicattachment">No attachment</p>
 			<?php } ?>
-		</li>
-		<?php } ?>
-	</ul>
-	<div class="newcomment">
-		<form enctype="multipart/form-data" method="post" action="thing.php">
-			<textarea name="comment" id="comment" rows="4" cols="50" placeholder="Add a comment"></textarea>
-			<br/>
-			<label for="attachment">Add an image, PDF, etc.</label>
-			<input id="attachment" name="attachment" type="file">
-			<br/>
-			<input type="hidden" name="thingid" value="<?php echo $thingid; ?>" />
-			<input type="submit" name="start" value="Add comment" />
-		</form>
+		</div>
+		<ul class="comments">
+			<?php foreach ($comments as $comment) { ?>
+			<li>
+				<?php echo $comment['commenttext']; ?>
+				<br/>
+				<span class="author"><?php echo $comment['username']; ?> on <?php echo $comment['commentposted']; ?></span>
+				<?php if ($comment['filename'] != NULL) { ?>
+					<p class="commentattachment"><a href="attachments/<?php echo $comment['attachmentid'] . '-' . $comment['filename']; ?>"><?php echo $comment['filename']; ?></a></p>
+				<?php } else { ?>
+					<p class="commentattachment">No attachment</p>
+				<?php } ?>
+			</li>
+			<?php } ?>
+		</ul>
+		<div class="newcomment">
+			<form enctype="multipart/form-data" method="post" action="thing.php">
+				<textarea name="comment" id="comment" rows="4" cols="50" placeholder="Add a comment"></textarea>
+				<br/>
+				<label for="attachment">Add an image, PDF, etc.</label>
+				<input id="attachment" name="attachment" type="file">
+				<br/>
+				<input type="hidden" name="thingid" value="<?php echo $thingid; ?>" />
+				<input type="submit" name="start" value="Add comment" />
+			</form>
+		</div>
 	</div>
 	<?php include 'include/footer.php'; ?>
 	<script src="js/site.js"></script>

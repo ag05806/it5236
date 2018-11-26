@@ -45,9 +45,9 @@ $attachmentTypes = $app->getAttachmentTypes($errors);
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>russellthackston.me</title>
-	<meta name="description" content="Russell Thackston's personal website for IT 5233">
-	<meta name="author" content="Russell Thackston">
+	<title>Admin Page</title>
+	<meta name="description" content="Ashley Guthrie's personal website for IT 5233">
+	<meta name="author" content="Ashley Guthrie">
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>

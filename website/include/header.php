@@ -49,4 +49,4 @@
 
 		<?php } ?>
 	</div>
-	<h1>IT 5236</h1>
+	<h1 class="header"><a href="index.php">Eat It!</a><!--<img src="https://anguthrie.me/it5236/website/css/images/LogoMakr_4fgKxF.png" height="102" width="172"/>--></h1>

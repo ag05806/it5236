@@ -79,35 +79,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>russellthackston.me</title>
-	<meta name="description" content="Russell Thackston's personal website for IT 5233">
-	<meta name="author" content="Russell Thackston">
+	<title>Eat It - Edit Profile</title>
+	<meta name="description" content="Ashley Guthrie's personal website for IT 5233">
+	<meta name="author" content="Ashley Guthrie">
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<?php include 'include/header.php'; ?>
-
-	<h2>Edit Profile</h2>
 	
-	<?php include 'include/messages.php'; ?>	
+	<div class="main">
 	
-	<div>
-		<form action="editprofile.php" method="post">
-			<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
-			<input type="text" name="username" id="username" placeholder="Pick a username" value="<?php echo $username; ?>" />
-			<br/>
-			<input type="password" name="password" id="password" placeholder="Enter a password" value="<?php echo $password; ?>" /> (optional)
-			<br/>
-			<input type="text" name="email" id="email" placeholder="Enter your email" size="40" value="<?php echo $email; ?>" />
-			<?php if ($loggedinuserid != $userid) { ?>
-			<br/>
-			<input type="checkbox" name="isadmin" id="isadmin" <?php echo ($isadminFlag ? "checked=checked" : ""); ?> value="isadmin" />
-			<label for="isadmin">Grant admin rights</label>
-			<?php } ?>
-			<br/>
-			<input type="submit" value="Update profile" />
-		</form>
+		<h2>Edit Profile</h2>
+	
+		<?php include 'include/messages.php'; ?>	
+	
+		<div>
+			<form action="editprofile.php" method="post">
+				<input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+				<input type="text" name="username" id="username" placeholder="Pick a username" value="<?php echo $username; ?>" />
+				<br/>
+				<input type="password" name="password" id="password" placeholder="Enter a password" value="<?php echo $password; ?>" /> (optional)
+				<br/>
+				<input type="text" name="email" id="email" placeholder="Enter your email" size="40" value="<?php echo $email; ?>" />
+				<?php if ($loggedinuserid != $userid) { ?>
+				<br/>
+				<input type="checkbox" name="isadmin" id="isadmin" <?php echo ($isadminFlag ? "checked=checked" : ""); ?> value="isadmin" />
+				<label for="isadmin">Grant admin rights</label>
+				<?php } ?>
+				<br/>
+				<input type="submit" value="Update profile" />
+			</form>
+		</div>
 	</div>
 	<?php include 'include/footer.php'; ?>
 	<script src="js/site.js"></script>

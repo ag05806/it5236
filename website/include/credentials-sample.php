@@ -1,6 +1,6 @@
 <?php
 
-class Credentials {
+/*class Credentials {
 
     // Declare the credentials to the database
     public $servername = "localhost";
@@ -8,6 +8,6 @@ class Credentials {
     public $serverpassword = "hunter2";
     public $serverdb = "it5236";
 
-}
+}*/
 
 ?>
