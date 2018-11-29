@@ -1,6 +1,0 @@
-{
-	"dbhost" 	 : "it5236mysqlforlambdatest.c5480zmkcqbp.us-east-2.rds.amazonaws.com",
-	"dbuser" 	 : "it5236LambdaTest",
-	"dbpassword" : "TooManyGreenCups!",
-	"dbname" 	 : "it5236ExampleDB"
-}
